@@ -1,8 +1,9 @@
 ---
   - include_vars: groups.yaml
 
-  - debug:
-    msg: System {{ groups }}
+  - name: display debug
+    debug:
+      msg: System {{ groups }}
 
   - name: Apply policies to groups.
     iam_policy:
