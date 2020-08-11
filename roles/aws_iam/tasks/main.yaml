@@ -8,5 +8,5 @@
       policy_name: "{{ item.0.name }}"
       state: "{{ item.0.state }}"
       #policy_document: "files/{{ item.0.name }}-policy.json"
-      policy_document: "{{ lookup( 'file', '{{ item.0.name }}-policy.json') }} "
+      policy_json: "{{ lookup( 'file', '{{ item.0.name }}-policy.json') }} "
     loop: "{{ policy_groups | subelements('group', 'skip_missing=True') }}"
