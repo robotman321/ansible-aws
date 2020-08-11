@@ -1,0 +1,13 @@
+---
+  - include_vars: groups.yaml
+
+  - name: Apply policies to groups.
+    iam_policy:
+      iam_type: group
+      iam_name: "{{ item.1 }}"
+      policy_name: "{{ item.0.name }}"
+      state: "{{ item.0.state }}"
+      policy_document: "{{ item.0.nam }}-policy.json"
+    with_subelements:
+      - "{{ groups }}"
+      - group

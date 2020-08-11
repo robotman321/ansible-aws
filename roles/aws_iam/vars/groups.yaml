@@ -1,0 +1,15 @@
+---
+groups:
+  - name: SensitiveBucketListBucket
+    group:
+      - devops-admin
+      - client-access
+    state: present
+  - name: SensitiveBucketAllowReadWrite
+    group:
+      - devops-admin
+    state: present
+  - name: SensitiveBucketAllowReadOnly
+    group:
+      - client-access
+    state: present

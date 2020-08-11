@@ -1,0 +1,19 @@
+---
+  - include_vars: buckets.yaml
+
+  - name: Evaluating each defined s3 bucket.
+    s3_bucket:
+      name: "{{ item.username }}"
+      state: "{{ item.state }}"
+      versioning: "{{ item.versioning }}"
+     loop: '{{ buckets }}'
+
+  - name: Setting up Lifecycle information.
+    s3_lifecycle:
+      name: "{{ item.bucket }}"
+      expiration_days: "{{ item.expiration_days }}"
+      prefix: "{{ item.name }}"
+      status: "{{ item.status }}"
+      state: "{{ item.state }}"
+    loop: '{{ lifecycles }}'
+

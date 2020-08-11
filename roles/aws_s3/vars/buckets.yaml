@@ -1,0 +1,11 @@
+---
+buckets:
+  - name: SensitiveBucket
+    state: present
+    versioning: no
+lifecycles:
+  - name: /reports/
+    bucket: SensitiveBucket
+    status: enabled
+    state: present
+    expiration_days: 30
