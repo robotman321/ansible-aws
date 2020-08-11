@@ -13,3 +13,7 @@ policy_groups:
     group:
       - client-access
     state: present
+  - name: ListAllBuckets
+    group:
+      - devops-admin
+    state: present
