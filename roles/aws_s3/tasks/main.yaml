@@ -7,7 +7,7 @@
       state: "{{ item.state }}"
       versioning: "{{ item.versioning }}"
     loop:
-      - "{{ buckets }}"
+      - "{{ lookup('dict', buckets) }}"
 
   - name: Setting up Lifecycle information.
     s3_lifecycle:
@@ -17,5 +17,5 @@
       status: "{{ item.status }}"
       state: "{{ item.state }}"
     loop:
-      - "{{ lifecycles }}"
+      - "{{ lookup('dict', lifecycles) }}"
 
