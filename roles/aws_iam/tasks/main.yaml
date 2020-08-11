@@ -8,4 +8,4 @@
       policy_name: "{{ item.0.name }}"
       state: "{{ item.0.state }}"
       policy_document: "{{ item.0.name }}-policy.json"
-    loop: "{{ groups|subelements('group') }}"
+    loop: "{{ groups|subelements('policy.group') }}"
