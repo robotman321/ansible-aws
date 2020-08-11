@@ -5,8 +5,7 @@
             "Sid": "ListAllBuckets",
             "Effect": "Allow",
             "Action": [
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket"
+                "s3:ListAllMyBuckets"
             ],
             "Resource": ["arn:aws:s3:::*"]
         }
