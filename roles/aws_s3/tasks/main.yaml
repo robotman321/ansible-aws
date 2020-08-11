@@ -3,7 +3,7 @@
 
   - name: Evaluating each defined s3 bucket.
     s3_bucket:
-      name: "{{ item.username }}"
+      name: "{{ item.name }}"
       state: "{{ item.state }}"
       versioning: "{{ item.versioning }}"
     loop:
