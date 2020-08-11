@@ -1,9 +1,9 @@
 ---
-  - include_vars: groups.yaml
+  - include_vars: policy_groups.yaml
 
   - name: display debug
     debug:
-      msg: System {{ groups }}
+      msg: System {{ policy_groups }}
 
   - name: Apply policies to groups.
     iam_policy:
@@ -12,4 +12,4 @@
       policy_name: "{{ item.0.name }}"
       state: "{{ item.0.state }}"
       policy_document: "{{ item.0.name }}-policy.json"
-    loop: "{{ groups | subelements('group', 'skip_missing=True') }}"
+    loop: "{{ policy_groups | subelements('group', 'skip_missing=True') }}"
