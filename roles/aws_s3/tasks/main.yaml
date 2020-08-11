@@ -6,7 +6,7 @@
       name: "{{ item.username }}"
       state: "{{ item.state }}"
       versioning: "{{ item.versioning }}"
-     loop: '{{ buckets }}'
+     loop: "{{ buckets }}"
 
   - name: Setting up Lifecycle information.
     s3_lifecycle:
@@ -15,5 +15,5 @@
       prefix: "{{ item.name }}"
       status: "{{ item.status }}"
       state: "{{ item.state }}"
-    loop: '{{ lifecycles }}'
+    loop: "{{ lifecycles }}"
 
