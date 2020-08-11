@@ -1,11 +1,11 @@
 ---
 buckets:
-  SensitiveBucket:
+  sensitivebucket:
     state: present
-    versioning: no
+    versioning: 'no'
 lifecycles:
   reports:
-    bucket: SensitiveBucket
+    bucket: sensitivebucket
     status: enabled
     state: present
     expiration_days: 30
