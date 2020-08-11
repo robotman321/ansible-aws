@@ -11,7 +11,7 @@
 
   - name: Setting up Lifecycle information.
     s3_lifecycle:
-      name: "{{ item.bucket }}"
+      name: "{{ item.value.bucket }}"
       expiration_days: "{{ item.value.expiration_days }}"
       prefix: "/{{ item.key }}/"
       status: "{{ item.value.status }}"
