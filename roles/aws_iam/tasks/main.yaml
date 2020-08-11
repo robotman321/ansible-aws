@@ -1,15 +1,11 @@
 ---
   - include_vars: policy_groups.yaml
 
-  - name: display debug
-    debug:
-      msg: System {{ policy_groups }}
-
   - name: Apply policies to groups.
     iam_policy:
       iam_type: group
       iam_name: "{{ item.1 }}"
       policy_name: "{{ item.0.name }}"
       state: "{{ item.0.state }}"
-      policy_document: "{{ item.0.name }}-policy.json"
+      policy_document: "files/{{ item.0.name }}-policy.json"
     loop: "{{ policy_groups | subelements('group', 'skip_missing=True') }}"
