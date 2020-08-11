@@ -3,19 +3,19 @@
 
   - name: Evaluating each defined s3 bucket.
     s3_bucket:
-      name: "{{ item.name }}"
-      state: "{{ item.state }}"
-      versioning: "{{ item.versioning }}"
+      name: "{{ item.key }}"
+      state: "{{ item.value.state }}"
+      versioning: "{{ item.value.versioning }}"
     loop:
       - "{{ lookup('dict', buckets) }}"
 
   - name: Setting up Lifecycle information.
     s3_lifecycle:
       name: "{{ item.bucket }}"
-      expiration_days: "{{ item.expiration_days }}"
-      prefix: "{{ item.name }}"
-      status: "{{ item.status }}"
-      state: "{{ item.state }}"
+      expiration_days: "{{ item.value.expiration_days }}"
+      prefix: "/{{ item.key }}/"
+      status: "{{ item.value.status }}"
+      state: "{{ item.value.state }}"
     loop:
       - "{{ lookup('dict', lifecycles) }}"
 

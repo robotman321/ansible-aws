@@ -1,10 +1,10 @@
 ---
 buckets:
-  - name: SensitiveBucket
+  SensitiveBucket:
     state: present
     versioning: no
 lifecycles:
-  - name: /reports/
+  reports:
     bucket: SensitiveBucket
     status: enabled
     state: present
