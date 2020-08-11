@@ -6,7 +6,7 @@
       name: "{{ item.username }}"
       state: "{{ item.state }}"
       versioning: "{{ item.versioning }}"
-     loop:
+    loop:
       - "{{ buckets }}"
 
   - name: Setting up Lifecycle information.
