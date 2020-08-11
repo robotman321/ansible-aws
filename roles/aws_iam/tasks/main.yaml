@@ -3,8 +3,6 @@
 
   - name: Apply policies to groups.
     iam_policy:
-      aws_access_key: "{{ aws_access_key }}"
-      aws_secret_key: "{{ aws_secret_key }}"
       iam_type: group
       iam_name: "{{ item.1 }}"
       policy_name: "{{ item.0.name }}"

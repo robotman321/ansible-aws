@@ -3,8 +3,6 @@
 
   - name: Evaluating each defined s3 bucket.
     s3_bucket:
-      aws_access_key: "{{ aws_access_key }}"
-      aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.username }}"
       state: "{{ item.state }}"
       versioning: "{{ item.versioning }}"
@@ -13,8 +11,6 @@
 
   - name: Setting up Lifecycle information.
     s3_lifecycle:
-      aws_access_key: "{{ aws_access_key }}"
-      aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.bucket }}"
       expiration_days: "{{ item.expiration_days }}"
       prefix: "{{ item.name }}"
