@@ -1,11 +1,11 @@
 ---
 buckets:
-  sensitivebucket:
+  sensitivebucket-test-for-brad:
     state: present
     versioning: 'no'
 lifecycles:
   reports:
-    bucket: sensitivebucket
+    bucket: sensitivebucket-test-for-brad
     status: enabled
     state: present
     expiration_days: 30

@@ -5,7 +5,7 @@
             "Sid": "SensitiveBucketListBucket",
             "Effect": "Allow",
             "Action": "s3:ListBucket",
-            "Resource": ["arn:aws:s3:::sensitivebucket"]
+            "Resource": ["arn:aws:s3:::sensitivebucket-test-for-brad"]
         }
     ]
 }
