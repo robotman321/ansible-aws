@@ -1,17 +1,14 @@
 {
-  "Id": "PolicyExample",
-  "Statement": [
-    {
-      "Action": [
-        "s3:PutObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "arn:aws:s3:::this-is-the-way-bucket/*",
-      "Principal": {
-        "AWS": [
-          "*"
-        ]
-      }
-    }
-  ]
+    "Version": "2008-10-17",
+    "Id": "PolicyExample",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::this-is-the-way-bucket/*"
+        }
+    ]
 }
