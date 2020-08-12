@@ -7,7 +7,7 @@
       aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
-      policy: "{{ item.value.policy }}"
+      policy: "{{ lookup( 'file','{{ item.key }}-policy.json' )}}"
       versioning: "{{ item.value.versioning }}"
     loop:
       - "{{ lookup('dict', buckets) }}"
