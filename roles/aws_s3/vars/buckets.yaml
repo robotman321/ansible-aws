@@ -3,6 +3,7 @@ buckets:
   this-is-the-way-bucket:
     state: present
     versioning: 'no'
+    policy: '{}'
 lifecycles:
   reports:
     bucket: this-is-the-way-bucket
