@@ -7,7 +7,8 @@
       aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
-      policy: "{{ lookup( 'file','{{ item.key }}-policy.json', skip=true) | ternary(lookup( 'file', 'default-policy.json' ), omit)}}"
+      #policy: "{{ lookup( 'file','{{ item.key }}-policy.json', skip=true) | ternary(lookup( 'file', 'default-policy.json' ), omit) }}"
+      policy: "{{ lookup('first_found', dict(files=['{{ item.key }}-policy.json'], skip=true)) | ternary(lookup('ini', 'foo section=DEFAULT file=default-policy.json'), omit) }}"
       region: "{{ item.value.region }}"
       versioning: "{{ item.value.versioning }}"
     loop:
