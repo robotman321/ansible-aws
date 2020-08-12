@@ -7,7 +7,7 @@
       aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
-      policy: "{{ lookup( 'file','{{ item.key }}-policy.json', skip=true) | default('default-policy.json') }}"
+      policy: "{{ lookup( 'file','{{ item.key }}-policy.json', errors='ignore') | default('default-policy.json') }}"
       region: "{{ item.value.region }}"
       versioning: "{{ item.value.versioning }}"
     loop:
