@@ -5,6 +5,7 @@
     s3_bucket:
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
+      policy: '{}'
       versioning: "{{ item.value.versioning }}"
     loop:
       - "{{ lookup('dict', buckets) }}"
