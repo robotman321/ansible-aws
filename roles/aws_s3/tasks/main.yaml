@@ -7,7 +7,6 @@
       aws_secret_key: "{{ aws_secret_key }}"
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
-      #policy: "{{ lookup( 'file','{{ item.key }}-policy.json', errors='ignore') | default(lookup('file','default-policy.json')) }}"
       policy: "{{ lookup('file', lookup('first_found', dict(files=['{{ item.key }}-policy.json', 'default-policy.json']), errors='ignore' )) }}"
       region: "{{ item.value.region }}"
       versioning: "{{ item.value.versioning }}"
