@@ -3,7 +3,7 @@ buckets:
   this-is-the-way-bucket:
     state: present
     versioning: 'no'
-    policy: '{}'
+    region: 'us-east-2'
 lifecycles:
   reports:
     bucket: this-is-the-way-bucket

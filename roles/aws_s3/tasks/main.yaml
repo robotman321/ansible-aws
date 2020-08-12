@@ -8,6 +8,7 @@
       name: "{{ item.key }}"
       state: "{{ item.value.state }}"
       policy: "{{ lookup( 'file','{{ item.key }}-policy.json' )}}"
+      region: "{{ item.value.region }}"
       versioning: "{{ item.value.versioning }}"
     loop:
       - "{{ lookup('dict', buckets) }}"
